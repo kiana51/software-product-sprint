@@ -3,7 +3,16 @@
   margin-right: auto;
   width: 650px;
 }
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 
 #quote-container {
   margin-top: 20px;
+}
+
+#picture{
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px
 }

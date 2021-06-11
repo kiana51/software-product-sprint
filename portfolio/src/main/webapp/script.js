@@ -27,3 +27,11 @@ function addFunnyQuote() {
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
+
+async function showTime() {
+  const responseFromServer = await fetch('/time');
+  const textFromResponse = await responseFromServer.text();
+
+  const timeContainer = document.getElementById('time-container');
+  timeContainer.innerText = textFromResponse;
+}

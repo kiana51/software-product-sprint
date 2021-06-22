@@ -35,3 +35,35 @@ async function showTime() {
   const timeContainer = document.getElementById('time-container');
   timeContainer.innerText = textFromResponse;
 }
+
+async function showFact() {
+ const responseFromServer = await fetch('/funFact');
+  const textFromResponse = await responseFromServer.text();
+
+  const factContainer = document.getElementById('time-container');
+  factContainer.innerText = textFromResponse;
+
+}
+
+async function getMessages() {
+  const responseFromServer = await fetch('/message-list');
+  // The json() function returns an object that contains fields that we can
+  // reference to create HTML.
+  const message = await responseFromServer.json();
+
+  const messageListElement = document.getElementById('message-list-container');
+  messageListElement.innerHTML = '';
+
+  messageListElement.appendChild(
+      createListElement('Message One: ' + message.messageOne));
+  messageListElement.appendChild(
+      createListElement('Message Two: ' + message.messageTwo));
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+
